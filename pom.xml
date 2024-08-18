@@ -2,11 +2,46 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>dev.mccue</groupId>
   <artifactId>docopt</artifactId>
   <version>2024.08.17</version>
+  <packaging>jar</packaging>
+
+  <name>docopt</name>
+  <description>Java port of docopt.</description>
+  <url>https://github.com/bowbahdoe/docopt.java</url>
+
+  <developers>
+    <developer>
+      <name>Vladimir Keleshev</name>
+      <email>vladimir@keleshev.com</email>
+    </developer>
+    <developer>
+      <name>Damien Giese</name>
+      <email>damien.giese@gmail.com</email>
+    </developer>
+    <developer>
+      <name>Ethan McCue</name>
+      <email>ethan@mccue.dev</email>
+      <organization>McCue Software Solutions</organization>
+      <organizationUrl>https://www.mccue.dev</organizationUrl>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://opensource.org/licenses/MIT</url>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:git://github.com/bowbahdoe/docopt.java.git</connection>
+    <developerConnection>scm:git:ssh://github.com:bowbahdoe/docopt.java.git</developerConnection>
+    <url>https://github.com/bowbahdoe/docopt.java/tree/main</url>
+  </scm>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -36,4 +71,92 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.3.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <compilerArgs>
+            <arg>-Xlint:all</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>3.4.1</version>
+            <executions>
+              <execution>
+                <id>attach-javadoc</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <doclint>none</doclint>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>3.2.1</version>
+            <executions>
+              <execution>
+                <id>attach-source</id>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.jreleaser</groupId>
+            <artifactId>jreleaser-maven-plugin</artifactId>
+            <version>1.11.0</version>
+            <configuration>
+              <jreleaser>
+                <project>
+                  <copyright>2024</copyright>
+                  <versionPattern><type>CHRONVER</type></versionPattern>
+                </project>
+                <signing>
+                  <active>ALWAYS</active>
+                  <armored>true</armored>
+                </signing>
+                <deploy>
+                  <maven>
+                    <nexus2>
+                      <maven-central>
+                        <active>ALWAYS</active>
+                        <url>https://s01.oss.sonatype.org/service/local</url>;
+                        <closeRepository>true</closeRepository>
+                        <releaseRepository>true</releaseRepository>
+                        <stagingRepositories>target/staging-deploy</stagingRepositories>
+                      </maven-central>
+                    </nexus2>
+                  </maven>
+                </deploy>
+              </jreleaser>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
