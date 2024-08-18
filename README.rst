@@ -16,7 +16,7 @@ and instead can write only the help message--*the way you want it*.
 
   import java.util.Map;
       
-  import org.docopt.Docopt;
+  import dev.mccue.docopt.Docopt;
       
   public final class NavalFate {
       
@@ -80,7 +80,7 @@ API
 
 .. code:: java
 
-  import org.docopt.Docopt;
+  import dev.mccue.docopt.Docopt;
   
 .. code:: java
 
@@ -112,7 +112,7 @@ API
   public Docopt(InputStream doc, Charset charset)
 
 Constructs an option parser from the ``doc`` argument or throws a
-``DocoptLanguageError`` if it is malformed. If ``doc`` is an ``InputStream``,
+``DocoptLanguageException`` if it is malformed. If ``doc`` is an ``InputStream``,
 the stream is read using the specified ``CharSet`` (``UTF-8`` by default).
 
 .. code:: java
