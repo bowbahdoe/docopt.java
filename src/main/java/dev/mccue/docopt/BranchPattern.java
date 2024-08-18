@@ -9,7 +9,9 @@ import java.util.List;
 /**
  * Branch/inner node of a pattern tree.
  */
-abstract class BranchPattern extends Pattern {
+sealed abstract class BranchPattern
+		extends Pattern
+		permits Either, OneOrMore, Optional, Required {
 
 	@Override
 	public int hashCode() {

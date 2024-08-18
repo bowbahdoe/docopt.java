@@ -4,7 +4,9 @@ import java.util.List;
 
 import static dev.mccue.docopt.Python.list;
 
-class Optional extends BranchPattern {
+sealed class Optional
+		extends BranchPattern
+		permits OptionsShortcut {
 
 	public Optional(final List<? extends Pattern> children) {
 		super(children);

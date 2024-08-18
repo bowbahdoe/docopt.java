@@ -8,7 +8,8 @@ import static dev.mccue.docopt.Python.split;
 import java.util.Arrays;
 import java.util.List;
 
-abstract class Pattern {
+sealed abstract class Pattern
+		permits BranchPattern, LeafPattern {
 
 	static class MatchResult {
 

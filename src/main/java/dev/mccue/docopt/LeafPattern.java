@@ -11,7 +11,9 @@ import java.util.List;
 /**
  * Leaf/terminal node of a pattern tree.
  */
-abstract class LeafPattern extends Pattern {
+sealed abstract class LeafPattern
+		extends Pattern
+		permits Argument, Option {
 
 	static class SingleMatchResult {
 

@@ -2,7 +2,9 @@ package dev.mccue.docopt;
 
 import java.util.List;
 
-class Argument extends LeafPattern {
+sealed class Argument
+		extends LeafPattern
+		permits Command {
 
 	public Argument(final String name, final Object value) {
 		super(name, value);
