@@ -1,23 +1,25 @@
-package org.docopt;
+package dev.mccue.docopt;
 
-import static org.docopt.Python.bool;
-import static org.docopt.Python.list;
+import static dev.mccue.docopt.Python.bool;
+import static dev.mccue.docopt.Python.list;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.docopt.Python.Re;
+import dev.mccue.docopt.Python.Re;
 
 final class Tokens extends ArrayList<String> {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	public static Tokens withExitException(final List<String> source) {
 		return new Tokens(source, DocoptExitException.class);
 	}
 
-	public static Tokens withLanguageError(final List<String> source) {
-		return new Tokens(source, DocoptLanguageError.class);
+	public static Tokens withLanguageException(final List<String> source) {
+		return new Tokens(source, DocoptLanguageException.class);
 	}
 
 	private final Class<? extends Throwable> error;
@@ -47,7 +49,7 @@ final class Tokens extends ArrayList<String> {
 			}
 		}
 
-		return Tokens.withLanguageError($source);
+		return Tokens.withLanguageException($source);
 	}
 
 	public String move() {
@@ -68,8 +70,8 @@ final class Tokens extends ArrayList<String> {
 			final Object... args) {
 		final String message = String.format(format, args);
 
-		if (error == DocoptLanguageError.class) {
-			throw new DocoptLanguageError(message);
+		if (error == DocoptLanguageException.class) {
+			throw new DocoptLanguageException(message);
 		}
 
 		if (error == DocoptExitException.class) {

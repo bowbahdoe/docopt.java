@@ -1,4 +1,4 @@
-package org.docopt;
+package dev.mccue.docopt;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,8 +16,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
-import static org.docopt.Python.list;
-import static org.docopt.Python.partition;
+import static dev.mccue.docopt.Python.list;
+import static dev.mccue.docopt.Python.partition;
 
 public final class DocoptTest extends TestCase {
 
@@ -223,7 +223,7 @@ public final class DocoptTest extends TestCase {
 
 	private final Object expected;
 
-	private DocoptTest(final String name, final String doc,
+	public DocoptTest(final String name, final String doc,
 			final List<String> argv, final Object expected) {
 		super(name);
 

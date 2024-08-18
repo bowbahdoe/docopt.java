@@ -1,4 +1,4 @@
-package org.docopt;
+package dev.mccue.docopt;
 
 final class DocoptTestError extends AssertionError {
 

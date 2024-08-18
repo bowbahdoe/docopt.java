@@ -1,13 +1,13 @@
-package org.docopt;
+package dev.mccue.docopt;
 
-import static org.docopt.Python.bool;
-import static org.docopt.Python.partition;
-import static org.docopt.Python.repr;
-import static org.docopt.Python.split;
+import static dev.mccue.docopt.Python.bool;
+import static dev.mccue.docopt.Python.partition;
+import static dev.mccue.docopt.Python.repr;
+import static dev.mccue.docopt.Python.split;
 
 import java.util.List;
 
-import org.docopt.Python.Re;
+import dev.mccue.docopt.Python.Re;
 
 final class Option extends LeafPattern {
 

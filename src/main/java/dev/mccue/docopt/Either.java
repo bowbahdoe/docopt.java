@@ -1,6 +1,6 @@
-package org.docopt;
+package dev.mccue.docopt;
 
-import static org.docopt.Python.list;
+import static dev.mccue.docopt.Python.list;
 
 import java.util.Collections;
 import java.util.Comparator;

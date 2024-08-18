@@ -1,10 +1,10 @@
-package org.docopt;
+package dev.mccue.docopt;
 
-import static org.docopt.Python.bool;
-import static org.docopt.Python.in;
-import static org.docopt.Python.list;
-import static org.docopt.Python.plus;
-import static org.docopt.Python.repr;
+import static dev.mccue.docopt.Python.bool;
+import static dev.mccue.docopt.Python.in;
+import static dev.mccue.docopt.Python.list;
+import static dev.mccue.docopt.Python.plus;
+import static dev.mccue.docopt.Python.repr;
 
 import java.util.List;
 

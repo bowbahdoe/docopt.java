@@ -1,13 +1,13 @@
-package org.docopt;
+package dev.mccue.docopt;
 
-import static org.docopt.Python.bool;
-import static org.docopt.Python.in;
-import static org.docopt.Python.isUpper;
-import static org.docopt.Python.join;
-import static org.docopt.Python.list;
-import static org.docopt.Python.partition;
-import static org.docopt.Python.set;
-import static org.docopt.Python.split;
+import static dev.mccue.docopt.Python.bool;
+import static dev.mccue.docopt.Python.in;
+import static dev.mccue.docopt.Python.isUpper;
+import static dev.mccue.docopt.Python.join;
+import static dev.mccue.docopt.Python.list;
+import static dev.mccue.docopt.Python.partition;
+import static dev.mccue.docopt.Python.set;
+import static dev.mccue.docopt.Python.split;
 
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -20,8 +20,8 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
-import org.docopt.Pattern.MatchResult;
-import org.docopt.Python.Re;
+import dev.mccue.docopt.Pattern.MatchResult;
+import dev.mccue.docopt.Python.Re;
 
 // @formatter:off
 /**
@@ -667,7 +667,7 @@ public final class Docopt {
 	 *
 	 * @param doc
 	 *            a POSIX-style help message
-	 * @throws DocoptLanguageError
+	 * @throws DocoptLanguageException
 	 *             if the help message is malformed
 	 * @see Docopt
 	 */
@@ -677,12 +677,12 @@ public final class Docopt {
 		final List<String> usageSections = parseSection("usage:", doc);
 
 		if (usageSections.size() == 0) {
-			throw new DocoptLanguageError(
+			throw new DocoptLanguageException(
 					"\"usage:\" (case-insensitive) not found.");
 		}
 
 		if (usageSections.size() > 1) {
-			throw new DocoptLanguageError(
+			throw new DocoptLanguageException(
 					"More than one \"usage:\" (case-insensitive).");
 		}
 
@@ -698,7 +698,7 @@ public final class Docopt {
 	 *            a stream containing a POSIX-style help message
 	 * @param charset
 	 *            the character encoding of the stream
-	 * @throws DocoptLanguageError
+	 * @throws DocoptLanguageException
 	 *             if the help message is malformed
 	 * @see Docopt
 	 */
@@ -711,7 +711,7 @@ public final class Docopt {
 	 *
 	 * @param stream
 	 *            a UTF-8 encoded stream containing a POSIX-style help message
-	 * @throws DocoptLanguageError
+	 * @throws DocoptLanguageException
 	 *             if the help message is malformed
 	 * @see Docopt
 	 */

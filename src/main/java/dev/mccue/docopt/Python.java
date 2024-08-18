@@ -1,4 +1,4 @@
-package org.docopt;
+package dev.mccue.docopt;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

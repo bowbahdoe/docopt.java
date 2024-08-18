@@ -1,8 +1,8 @@
-package org.docopt;
+package dev.mccue.docopt;
 
 import java.util.List;
 
-import static org.docopt.Python.list;
+import static dev.mccue.docopt.Python.list;
 
 class Optional extends BranchPattern {
 

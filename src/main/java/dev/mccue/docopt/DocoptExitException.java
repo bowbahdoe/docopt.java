@@ -1,4 +1,6 @@
-package org.docopt;
+package dev.mccue.docopt;
+
+import java.io.Serial;
 
 /**
  * An exception thrown by {@link Docopt#parse} to indicate that the application
@@ -7,6 +9,7 @@ package org.docopt;
  */
 public final class DocoptExitException extends RuntimeException {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	private final int exitCode;
